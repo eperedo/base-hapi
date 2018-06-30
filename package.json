@@ -1,0 +1,27 @@
+{
+	"name": "base-hapi",
+	"version": "1.0.0",
+	"description": "A base hapi configuration for my new API projects",
+	"main": "src/server.js",
+	"scripts": {
+		"test": "node src/server.test.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/eperedo/base-hapi.git"
+	},
+	"keywords": [],
+	"author": "Eduardo Peredo Rivero <jrperedo@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/eperedo/base-hapi/issues"
+	},
+	"homepage": "https://github.com/eperedo/base-hapi#readme",
+	"dependencies": {
+		"hapi": "17.5.2"
+	},
+	"engines": {
+		"node": ">= 8.10.0",
+		"npm": ">= 6.1.0"
+	}
+}
