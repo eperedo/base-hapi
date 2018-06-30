@@ -7,11 +7,11 @@
 ```javascript
 const server = require('base-hapi');
 
-(async () => {
+async () => {
 	await server.start();
-	console.log('Server started at ${server.info.uri}`);
+	console.log(`Server started at ${server.info.uri}`);
 	// server started at http://localhost:4000
-});
+};
 ```
 
 If you want to change the HOST and PORT you can do it by setting up two variable environments
