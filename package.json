@@ -18,6 +18,7 @@
 	},
 	"homepage": "https://github.com/eperedo/base-hapi#readme",
 	"dependencies": {
+		"catbox-redis": "4.1.0",
 		"hapi": "17.5.2"
 	},
 	"engines": {
