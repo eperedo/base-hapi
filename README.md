@@ -5,9 +5,10 @@
 ### Usage
 
 ```javascript
-const server = require('base-hapi');
+const baseConfig = require('base-hapi');
 
 (async () => {
+	const server = await baseConfig;
 	await server.start();
 	console.log(`Server started at ${server.info.uri}`);
 	// server started at http://localhost:4000

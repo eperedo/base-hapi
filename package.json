@@ -10,7 +10,11 @@
 		"type": "git",
 		"url": "git+https://github.com/eperedo/base-hapi.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"hapi",
+		"glue",
+		"boilerplate"
+	],
 	"author": "Eduardo Peredo Rivero <jrperedo@gmail.com>",
 	"license": "MIT",
 	"bugs": {
@@ -19,6 +23,7 @@
 	"homepage": "https://github.com/eperedo/base-hapi#readme",
 	"dependencies": {
 		"catbox-redis": "4.1.0",
+		"glue": "5.0.0",
 		"hapi": "17.5.2"
 	},
 	"engines": {
