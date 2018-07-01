@@ -1,7 +1,7 @@
 'use strict';
 
 const Glue = require('glue');
-const options = require('./server-options');
+const manifest = require('./server-manifest');
 const preRegister = require('./pre-register');
 
 function handleFatalError(err) {
@@ -15,9 +15,7 @@ process.on('uncaughtException', handleFatalError);
 
 function createConfiguration(configuration = {}) {
 	const glueConfig = Glue.compose(
-		{
-			server: { ...options },
-		},
+		manifest(configuration.plugins),
 		{
 			preRegister: preRegister(configuration),
 		},

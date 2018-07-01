@@ -47,3 +47,25 @@ const glueConfig = require('./server');
 		'Request without credentials must return 401 status code',
 	);
 })();
+
+(async () => {
+	const myPlugin = {
+		name: 'my-plugin',
+		register(server) {
+			server.route({
+				handler() {
+					return 'I am a plugin';
+				},
+				method: 'GET',
+				path: '/my-plugin',
+			});
+		},
+		version: '1.0.0',
+	};
+	const plugins = [myPlugin];
+	const server = await glueConfig({ plugins });
+
+	const { result } = await server.inject({ url: '/my-plugin' });
+
+	assert.equal(result, 'I am a plugin', 'The result must be "I am a plugin"');
+})();
