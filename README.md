@@ -68,3 +68,23 @@ async function validate(token) {
 
 const server = await glueConfig({ validate });
 ```
+
+4.  Adding plugins
+
+```javascript
+const myPlugin = {
+  name: 'my-plugin',
+  register(server) {
+    server.route({
+      handler() {
+        return 'I am a plugin';
+      },
+      method: 'GET',
+      path: '/my-plugin',
+    });
+  },
+  version: '1.0.0',
+};
+const plugins = [myPlugin];
+const server = await glueConfig({ plugins });
+```
