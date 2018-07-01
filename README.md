@@ -12,7 +12,6 @@
 
 ```javascript
 const baseConfig = require('base-hapi');
-
 (async () => {
 	const server = await baseConfig;
 	await server.start();
@@ -58,11 +57,11 @@ options: {
 
 ```javascript
 async function validate(token) {
-	// your custom validation here
-	// return true to pass to the handler
-	// return false to return a 401 to client
-	// credentials can be used inside your handlers in the request object
-	// request.auth.credentials
+  // your custom validation here
+  // return true to pass to the handler
+  // return false to return a 401 to client
+  // credentials can be used inside your handlers in the request object
+  // request.auth.credentials
   return { isValid: true, credentials: { id: 1 } };
 }
 
@@ -96,8 +95,8 @@ const server = await baseConfig();
 server.route({
   method: 'GET',
   path: '/pagination',
-	handler(request, h) {
-		return h.paginate({ results: [], total: 20 }, request.query);
+  handler(request, h) {
+    return h.paginate({ results: [], total: 20 }, request.query);
   },
 });
 ```
