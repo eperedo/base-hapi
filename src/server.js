@@ -2,6 +2,7 @@
 
 const Glue = require('glue');
 const options = require('./server-options');
+const preRegister = require('./pre-register');
 
 function handleFatalError(err) {
 	console.log('ZOMG A FATAL ERROR', err);
@@ -12,8 +13,13 @@ process.on('unhandledRejection', handleFatalError);
 
 process.on('uncaughtException', handleFatalError);
 
-const glueConfig = Glue.compose({
-	server: { ...options },
-});
+const glueConfig = Glue.compose(
+	{
+		server: { ...options },
+	},
+	{
+		preRegister,
+	},
+);
 
 module.exports = glueConfig;

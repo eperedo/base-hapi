@@ -37,3 +37,13 @@ Out of the box base-hapi comes with many defaults:
   port: process.env.REDIST_PORT || 6379,
 },
 ```
+
+2.  Sentry for logging management. You will need an account [here](https://docs.sentry.io/quickstart/#)
+    Now you can pass your sentry environment and dsn with these environment variables
+
+```javascript
+options: {
+  environment: process.env.NODE_ENV,
+  dsn: process.env.SENTRY_DNS,
+},
+```

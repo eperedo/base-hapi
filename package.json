@@ -1,6 +1,6 @@
 {
 	"name": "base-hapi",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A base hapi configuration for my new API projects",
 	"main": "src/server.js",
 	"scripts": {
@@ -24,7 +24,8 @@
 	"dependencies": {
 		"catbox-redis": "4.1.0",
 		"glue": "5.0.0",
-		"hapi": "17.5.2"
+		"hapi": "17.5.2",
+		"hapi-raven": "7.0.0"
 	},
 	"engines": {
 		"node": ">= 8.10.0",
