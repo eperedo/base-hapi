@@ -66,7 +66,7 @@ async function validate(token) {
   return { isValid: true, credentials: { id: 1 } };
 }
 
-const server = await glueConfig({ validate });
+const server = await baseConfig({ validate });
 ```
 
 4.  Adding plugins
@@ -86,5 +86,24 @@ const myPlugin = {
   version: '1.0.0',
 };
 const plugins = [myPlugin];
-const server = await glueConfig({ plugins });
+const server = await baseConfig({ plugins });
+```
+
+5.  The objection-paginate plugin is included.
+
+```javascript
+const server = await baseConfig();
+server.route({
+  method: 'GET',
+  path: '/pagination',
+	handler(request, h) {
+		return h.paginate({ results: [], total: 20 }, request.query);
+  },
+});
+```
+
+If you do not specify a limit in the query parameters it will use the OFFSET_DEFAULT environment variable
+
+```bash
+OFFSET_DEFAULT = 10
 ```

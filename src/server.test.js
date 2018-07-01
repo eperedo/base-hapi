@@ -69,3 +69,22 @@ const glueConfig = require('./server');
 
 	assert.equal(result, 'I am a plugin', 'The result must be "I am a plugin"');
 })();
+
+(async () => {
+	const server = await glueConfig();
+
+	server.route({
+		method: 'GET',
+		path: '/pagination',
+		handler(request, h) {
+			return h.paginate({ results: [], total: 20 }, request.query);
+		},
+	});
+
+	const { headers } = await server.inject({
+		url: '/pagination?page=2&limit=10',
+	});
+
+	assert.equal(headers['x-last-page'], 2, 'The last page must be TWO');
+	assert.equal(headers['x-quantity'], 20, 'The quantity must be TWENTY');
+})();

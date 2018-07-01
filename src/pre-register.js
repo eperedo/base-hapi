@@ -1,11 +1,13 @@
 'use strict';
 
-const raven = require('./raven');
 const AuthBearer = require('hapi-auth-bearer-token');
+const raven = require('./raven');
+const paginate = require('./plugins/paginate');
 
 function createPreRegister(config) {
 	return async function preRegister(server) {
 		await server.register(raven);
+		await server.register(paginate);
 		if (config.validate) {
 			await server.register(AuthBearer);
 			server.auth.strategy('simple', 'bearer-access-token', {
