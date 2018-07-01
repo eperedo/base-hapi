@@ -16,7 +16,7 @@ const glueConfig = require('./server');
 })();
 
 (async () => {
-	function validate() {
+	async function validate() {
 		return { isValid: true, credentials: { id: 1 } };
 	}
 
@@ -34,6 +34,8 @@ const glueConfig = require('./server');
 		url: '/private',
 		credentials: { id: 1 },
 	});
+
+	assert.equal(result, 1, 'The ID of the user must be ONE');
 
 	const { statusCode } = await server.inject({
 		url: '/private',

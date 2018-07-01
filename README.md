@@ -53,3 +53,18 @@ options: {
   dsn: process.env.SENTRY_DNS,
 },
 ```
+
+3.  For authentication you must define a function with your logic inside of it.
+
+```javascript
+async function validate(token) {
+	// your custom validation here
+	// return true to pass to the handler
+	// return false to return a 401 to client
+	// credentials can be used inside your handlers in the request object
+	// request.auth.credentials
+  return { isValid: true, credentials: { id: 1 } };
+}
+
+const server = await glueConfig({ validate });
+```
