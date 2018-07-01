@@ -1,6 +1,12 @@
-# base-hapi
+# base-hapi [![CircleCI](https://circleci.com/gh/eperedo/base-hapi.svg?style=svg)](https://circleci.com/gh/eperedo/base-hapi)
 
 > A base hapi configuration for my new API projects
+
+### Pre-Requisites
+
+1.  node 8.10 or greater
+2.  npm 6.1.0 or greater
+3.  redis 4.0 or greater
 
 ### Usage
 

@@ -13,13 +13,16 @@ process.on('unhandledRejection', handleFatalError);
 
 process.on('uncaughtException', handleFatalError);
 
-const glueConfig = Glue.compose(
-	{
-		server: { ...options },
-	},
-	{
-		preRegister,
-	},
-);
+function createConfiguration(configuration = {}) {
+	const glueConfig = Glue.compose(
+		{
+			server: { ...options },
+		},
+		{
+			preRegister: preRegister(configuration),
+		},
+	);
+	return glueConfig;
+}
 
-module.exports = glueConfig;
+module.exports = createConfiguration;
